@@ -50,12 +50,12 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 controller.increase();
               },
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 size: 33,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             FloatingActionButton(
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 controller.decrease();
               },
-              child: Icon(
+              child: const Icon(
                 Icons.remove,
                 size: 33,
               ),

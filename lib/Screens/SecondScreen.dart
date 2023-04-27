@@ -4,13 +4,17 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class SecondScreen extends StatelessWidget {
   SecondScreen({super.key});
-  List<String> names = ["Karim", "Ahmeed"];
+  List<String> names = [
+    "Karim",
+    "Ahmeed",
+    "ALI",
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: names.length,
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8),
         child: Container(
           child: Center(
             child: Container(

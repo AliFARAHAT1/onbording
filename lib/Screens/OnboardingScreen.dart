@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         alignment: Alignment.topCenter,
         children: [
           PageView.builder(
-            onPageChanged: (int newIndex) {
+            onPageChanged: (newIndex) {
               setState(() {
                 index = newIndex;
                 print(index);
