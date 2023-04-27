@@ -24,13 +24,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       image:
           "https://www.iconpacks.net/icons/2/free-bitcoin-icon-2207-thumb.png",
       title: "Explore Best Coins",
-      body: "TEXT 2",
+      body:
+          "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
     ),
     PageModel(
       image:
           "https://www.iconpacks.net/icons/2/free-cryptocurrency-coin-icon-2457-thumb.png",
       title: "Fast Optimization",
-      body: "TEXT 3",
+      body:
+          "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
     ),
   ];
   @override
