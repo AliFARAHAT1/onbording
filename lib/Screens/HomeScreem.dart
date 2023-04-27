@@ -1,62 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todoapp/Screens/FirstPage.dart';
+import 'package:todoapp/Screens/SecondScreen.dart';
+import 'package:todoapp/Screens/TabBaeScreens/AllNewsScreen.dart';
+import 'package:todoapp/Screens/TabBaeScreens/TodayNewsScreen.dart';
+import 'package:todoapp/Screens/TabBaeScreens/YesterdayNewsScreen.dart';
+
+import '../controllers/BottomNavigationController.dart';
+import '../controllers/CounterContreoller.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-  List<Widget> tabs = [
-    Tab(
-      text: "All",
-      icon: Icon(Icons.all_inbox),
-    ),
-    Tab(
-      text: "Today",
-      icon: Icon(Icons.today),
-    ),
-    Tab(
-      text: "Yesterday",
-      icon: Icon(Icons.youtube_searched_for),
-      iconMargin: EdgeInsets.only(bottom: 10),
-    )
+
+  CounterController controller = Get.put(CounterController());
+  BottomNavigationBarController navigationController =
+      Get.put(BottomNavigationBarController());
+
+  List<Widget> screens = [
+    FirstPage(),
+    SecondScreen(),
   ];
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: tabs.length,
-      child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              unselectedLabelColor: Color.fromRGBO(244, 67, 54, 1),
-              labelColor: Colors.white,
-              labelStyle: TextStyle(fontSize: 19),
-              indicatorColor: Colors.black,
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(width: 2, color: Colors.white),
-              ),
-              indicatorSize: TabBarIndicatorSize.label,
-              tabs: tabs,
-            ),
-          ),
-          body: TabBarView(
-            children: [
-              Center(
-                child: Text(
-                  "All News",
-                  style: TextStyle(fontSize: 55),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Today News",
-                  style: TextStyle(fontSize: 55),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Yesterday News",
-                  style: TextStyle(fontSize: 55),
-                ),
-              )
+    return Scaffold(
+        backgroundColor: Colors.white,
+        bottomNavigationBar: Obx(
+          () => BottomNavigationBar(
+            backgroundColor: Colors.blue,
+            selectedItemColor: Colors.orange,
+            unselectedItemColor: Colors.black,
+            currentIndex: navigationController.index.value,
+            onTap: (int value) {
+              navigationController.changeIndex(selectedIndex: value);
+            },
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.settings), label: "Settings")
             ],
-          )),
-    );
+          ),
+        ),
+        floatingActionButton: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FloatingActionButton(
+              backgroundColor: Colors.black,
+              elevation: 0,
+              onPressed: () {
+                controller.increase();
+              },
+              child: Icon(
+                Icons.add,
+                size: 33,
+              ),
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            FloatingActionButton(
+              backgroundColor: Colors.black,
+              elevation: 0,
+              onPressed: () {
+                controller.decrease();
+              },
+              child: Icon(
+                Icons.remove,
+                size: 33,
+              ),
+            ),
+          ],
+        ),
+        body: Obx((() => screens[navigationController.index.value])));
   }
 }
