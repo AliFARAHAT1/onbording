@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   chat_bubbles: ^1.4.1
   firebase_core: ^2.10.0
+  cloud_firestore: ^4.5.3
 
 
 
