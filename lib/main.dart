@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/Screens/HomeScreem.dart';
 import 'package:todoapp/Screens/OnboardingScreen.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(TodoApp());
 }
 
@@ -13,8 +18,12 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.orangeAccent,
-      ),
+          scaffoldBackgroundColor: Colors.black,
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.blue,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.black,
+          )),
       debugShowCheckedModeBanner: false,
       home: const OnboardingScreen(),
     );

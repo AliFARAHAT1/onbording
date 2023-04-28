@@ -27,9 +27,6 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         bottomNavigationBar: Obx(
           () => BottomNavigationBar(
-            backgroundColor: Colors.blue,
-            selectedItemColor: Colors.orange,
-            unselectedItemColor: Colors.black,
             currentIndex: navigationController.index.value,
             onTap: (int value) {
               navigationController.changeIndex(selectedIndex: value);
@@ -45,7 +42,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             FloatingActionButton(
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.orange,
               elevation: 0,
               onPressed: () {
                 controller.increase();
@@ -59,7 +56,7 @@ class HomeScreen extends StatelessWidget {
               width: 20,
             ),
             FloatingActionButton(
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.orange,
               elevation: 0,
               onPressed: () {
                 controller.decrease();

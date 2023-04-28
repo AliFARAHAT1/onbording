@@ -13,12 +13,11 @@ class YesterdayNewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orangeAccent,
       child: Center(
           child: Obx(
         () => Text(
           controller.counter.toString(),
-          style: TextStyle(fontSize: 55),
+          style: TextStyle(fontSize: 55, color: Colors.white),
         ),
       )),
     );
