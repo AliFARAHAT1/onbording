@@ -131,17 +131,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget printDots() {
     List<Widget> dots = [];
     for (var i = 0; i < 3; i++) {
-      dots.add(Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Container(
-          width: index == i ? 40 : 15,
-          height: 15,
-          decoration: BoxDecoration(
-            color: index == i ? Colors.white : Colors.grey,
-            borderRadius: BorderRadius.circular(200),
+      dots.add(
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: Container(
+            width: index == i ? 40 : 15,
+            height: 15,
+            decoration: BoxDecoration(
+              color: index == i ? Colors.white : Colors.grey,
+              borderRadius: BorderRadius.circular(200),
+            ),
           ),
         ),
-      ));
+      );
     }
 
     return Positioned(
